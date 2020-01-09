@@ -1,0 +1,27 @@
+{
+  "name": "cox-theme",
+  "version": "0.0.1",
+  "description": "Vuepress theme",
+  "main": "index.js",
+  "authors": {
+    "name": "bedeute",
+    "email": "bedeute@gmail.com"
+  },
+  "repository": "github.com/bedeute/vuepress-theme-cox",
+  "scripts": {
+    "dev": "vuepress dev blog",
+    "build": "vuepress build blog"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "@goy/vuepress-plugin-svg-icons": "^4.0.0",
+    "@vuepress/theme-blog": "^1.0.0",
+    "sanitize.css": "^11.0.0",
+    "vue-embed-gist": "^1.0.2",
+    "vue-tweet-embed": "^2.4.0",
+    "vuepress": "^1.0.0"
+  },
+  "dependencies": {
+    "vue-carousel": "^0.18.0"
+  }
+}
