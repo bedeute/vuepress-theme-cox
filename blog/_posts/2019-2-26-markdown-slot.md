@@ -1,5 +1,6 @@
 ---
 date: 2019-2-26
+featured: true
 tag: 
   - markdown
   - vuepress

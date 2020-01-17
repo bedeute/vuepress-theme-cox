@@ -7,16 +7,24 @@
 @require './toc.styl'
 @require './sw-popup.styl'
 
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,400i,600,600i&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Asap:400,400i,600,600i&display=swap');
+
+
+html
+  font-size 62.5%
+
 html, body
   padding 0
   margin 0
   background-color #fff
 
 body
-  font-family -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif
+  font-family $fontSansSerif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  font-size 16px
+  font-size 1.6rem
+  line-height 1.6
   color $textColor
   background-color #FFF
 
@@ -44,7 +52,6 @@ body
   display none
 
 .sidebar
-  font-size 16px
   background-color #fff
   width $sidebarWidth
   position fixed
@@ -98,7 +105,7 @@ kbd
   padding 0 0.15em
 
 blockquote
-  font-size .9rem
+  font-size 1.2rem
   color darken($accentColor, 50%)
   border-left: 3px solid $accentColor;
   margin 0.5rem 0
@@ -116,7 +123,7 @@ strong
 h1, h2, h3, h4, h5, h6
   font-weight 600
   line-height 1.25
-  font-family PT Serif
+  font-family $fontSerif
 
   {$contentClass}:not(.custom) > &
     margin-top (0.5rem - $navbarHeight)
@@ -134,15 +141,15 @@ h1, h2, h3, h4, h5, h6
     opacity: 1
 
 h1
-  font-size 2.2rem
+  font-size 4rem
 
 h2
-  font-size 1.65rem
+  font-size 2.8rem
   padding-bottom .3rem
   border-bottom 1px solid $borderColor
 
 h3
-  font-size 1.35rem
+  font-size 1.6rem
 
 a.header-anchor
   font-size 0.85em

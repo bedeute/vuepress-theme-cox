@@ -1,0 +1,166 @@
+@import '~@app/style/config'
+
+
+#desktop-header, #mobile-header
+  z-index 12
+  position fixed
+  top 0
+  width 100vw
+  box-sizing border-box
+  // background lighten(#3eaf7c, 90%)
+  background-color #FFF
+  padding 0 32px
+  margin auto
+  box-shadow:
+    0 2.3px 5.3px -17px rgba(0, 0, 0, 0.024),
+    0 16px 12px -17px rgba(0, 0, 0, 0.13)
+
+  // transition: all 1s cubic-bezier(.25, .8, .25, 1)
+  transition: all 1s ease-in-out
+
+  ol, ul
+    list-style none
+
+// border-bottom 5px solid lighten(#3eaf7c, 50%)
+
+.header-wrapper
+  display flex
+  height $navbarHeight
+  align-items center
+
+  .title
+    font-size 1.4rem
+    margin 0
+    display block
+    flex none
+
+    a
+      color $black
+      font-family 'IBM Plex Serif', serif
+      text-decoration none
+
+      &:after
+        content none
+
+  .header-right-wrap
+    flex 1 1 auto
+    display flex
+    justify-content flex-end
+    align-items center
+
+    > .nav
+      flex 1 1 auto
+      display flex
+      justify-content flex-end
+      margin-right .8rem
+
+      ul
+        display inline-flex
+        margin 0
+
+        .nav-item
+          margin-left 20px
+
+          a
+            font-size 1.1rem
+            // color lighten(#3eaf7c, 30%)
+            text-decoration none
+            transition color .3s
+            padding 1rem 0
+
+            &.router-link-active
+
+              &:after
+                content ''
+                position absolute
+                width 75%
+                height 3px
+                background $accentColor
+                bottom 0
+                margin auto
+                left 0
+                right 0
+                border-top-left-radius 3px
+                border-top-right-radius 3px
+
+    .search-box
+      flex none
+      font-family PT Serif, Serif
+      margin-left 1rem
+
+      input
+        border-radius 5px
+        transition all .5s
+        border: 1px solid #cecece
+
+        &:hover
+          border 1px solid $accentColor
+          box-shadow 0 0 5px $accentColor
+
+      .suggestions
+        border 1px solid #000
+        top: 40px
+        right 0
+
+        a
+          color #000
+          text-decoration none
+
+          &.focused
+            color $accentColor
+
+
+// mobile menu style
+
+#mobile-header
+
+  .mobile-header-title
+    display flex
+    align-items center
+    justify-content space-between
+    padding 0.7rem 0
+
+    .mobile-home-link
+      text-decoration none
+      font-family 'IBM Plex Serif', serif
+      color $black
+      border none
+
+      &:after
+        content none
+
+
+.mobile-nav-item
+  list-style none
+
+  a
+    text-decoration none
+
+.menu-divider
+  margin 0
+
+.mobile-menu-wrapper
+  border-top solid 1px $grey20
+  max-height 0
+  overflow hidden
+  transition 0.3s ease
+  background-color #fff
+
+.mobile-menu-wrapper.open
+  max-height 450px
+  transition 0.3s ease
+
+@media (max-width: $MQMobile)
+
+  #desktop-header
+    display none
+
+  .header-wrapper
+    flex-direction column
+
+    .header-right-wrap
+      display none
+
+@media (min-width: $MQMobile)
+  #mobile-header
+    display none

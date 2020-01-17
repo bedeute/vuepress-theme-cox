@@ -1,15 +1,25 @@
 <template>
   <div id="base-list-layout">
-    <div class="ui-posts">
+
+    <post-list-item
+      v-for="(post, index) in pages"
+      :key="index"
+      :item="post"
+      :date="resolvePostDate(post.frontmatter.date)"
+    />
+    
+    <!-- <div class="ui-posts">
       <div v-for="page in pages" :key="page.key" class="ui-post">
         <div class="ui-post-title">
           <NavLink :link="page.path">{{ page.title }}</NavLink>
+          <em>mboet: {{ page.frontmatter.thumbnail || page.firstImage }}</em>
         </div>
 
         <p class="ui-post-summary">
-          {{ page.frontmatter.summary || page.summary }}
+          <em>test: {{ page.frontmatter.firstImage || page.firstImage }}</em>
+          {{ page.frontmatter.summary || page.summary }} -->
           <!-- <Content :page-key="page.key" slot-key="intro"/>-->
-        </p>
+        <!-- </p>
 
         <div v-if="page.frontmatter.author" class="ui-post-author">
           <NavigationIcon />
@@ -24,7 +34,7 @@
           <span>{{ resolvePostDate(page.frontmatter.date) }}</span>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <component
       :is="paginationComponent"
@@ -44,8 +54,15 @@ import {
   SimplePagination,
 } from '@vuepress/plugin-blog/lib/client/components'
 
+import PostListItem from "../components/PostListItem"
+import resolvePostDate from "../mixins/resolvePostDate"
+
 export default {
-  components: { NavigationIcon, ClockIcon },
+  components: {
+    NavigationIcon,
+    ClockIcon,
+    PostListItem
+  },
 
   data() {
     return {
@@ -76,13 +93,8 @@ export default {
 
       return Vue.component(n) || Pagination
     },
-
-    resolvePostDate(date) {
-      return dayjs(date).format(
-        this.$themeConfig.dateFormat || 'ddd MMM DD YYYY'
-      )
-    },
   },
+  mixins: [ resolvePostDate ]
 }
 </script>
 

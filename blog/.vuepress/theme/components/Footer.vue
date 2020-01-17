@@ -111,87 +111,94 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
-ol, ul
-  list-style none
-  margin 0
-  padding 0
+  ol, ul
+    list-style none
+    margin 0
+    padding 0
 
-.footer
-  height 60px
-  box-sizing border-box
-  background-color #000
-  color #FFF
-  display flex
-  padding 15px 32px
-
-  .footer-left-wrap
-    line-height 30px
-    flex 1
-    display flex
-
-    .contact
-      display flex
-
-      .contact-item
-        flex 1
-        margin-right 10px
-
-        a
-          font-size 12px
-          color rgba(255, 255, 255, 0.45)
-          text-decoration none
-          transition color 0.3s
-
-          &:hover
-            color #FFF
-
-  .footer-right-wrap
-    flex 1
-    display flex
-    align-items center
-    justify-content center
-
-    @media (min-width: $MQNarrow)
-      justify-content flex-end
-
-    .copyright
-      display flex
-      justify-content flex-end
-
-      .copyright-item
-        flex 0 0 auto
-        padding 0 10px
-        position relative
-        line-height 12px
-        border-right 1px solid rgba(255, 255, 255, 0.6)
-
-        &:last-child
-          border-right none
-
-        a
-          font-size 12px
-          color rgba(255, 255, 255, 0.6)
-          text-decoration none
-          transition color 0.3s
-
-          &:hover
-            color rgba(255, 255, 255, 0.9)
-
-@media (max-width: $MQMobile)
   .footer
-    height 100px
-    flex-direction column
+    height 80px
+    box-sizing border-box
+    color $grey80
+    display flex
+    padding 15px 32px
+    position relative
+
+    &:before
+      content ''
+      background linear-gradient(rgba(230, 243, 255, 0) 0%, rgba(230, 243, 255, 1) 100%)
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      height 120%
+
 
     .footer-left-wrap
+      line-height 30px
+      flex 1
+      display flex
+      align-items center
+
+      .contact
+        display flex
+
+        .contact-item
+          flex 1
+          margin-right 10px
+
+          a
+            font-size 12px
+            color $grey
+            text-decoration none
+            transition color .3s
+
+    .footer-right-wrap
+      flex 1
+      display flex
       align-items center
       justify-content center
 
-    .footer-right-wrap
+      @media(min-width: $MQNarrow)
+        justify-content flex-end
+
       .copyright
-        display block
+        display flex
+        justify-content flex-end
 
         .copyright-item
-          line-height 1
-          border-right none
-          text-align center
+          flex 0 0 auto
+          padding 0 10px
+          position relative
+          line-height 12px
+          border-right 1px solid rgba(255, 255, 255, 0.6)
+
+          &:last-child
+            border-right none
+
+          a
+            font-size 12px
+            color $grey
+            text-decoration none
+            transition color .3s
+
+            &:not([href="/.html"]):hover
+              // color rgba(255, 255, 255, 0.9)
+
+            &[href="/.html"]
+              cursor default
+
+              &:hover
+                opacity 1
+
+
+  @media (max-width: $MQMobile)
+    .footer
+      height 100px
+      flex-direction column
+      background linear-gradient(rgba(230, 243, 255, 0) 0%, rgba(230, 243, 255, 1) 100%)
+
+      .footer-left-wrap
+        align-items center
+        justify-content center
 </style>

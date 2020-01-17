@@ -5,12 +5,14 @@ tag:
   - blog
   - vuepress
 author: ULIVZ
-location: Shanghai  
+location: Shanghai
+thumbnail: https://i.ytimg.com/vi/vLbNsPD_pm8/maxresdefault.jpg
 ---
 
 # Writing a VuePress theme
 
-To write a theme, create a `.vuepress/theme` directory in your docs root, and then create a `Layout.vue` file:
+first image over here To write a theme, create a `.vuepress/theme` directory in your docs root, and then create a `Layout.vue` file:
+!["First image"](https://404store.com/2017/12/08/random-pic-14.jpg)
 
 ```
 .

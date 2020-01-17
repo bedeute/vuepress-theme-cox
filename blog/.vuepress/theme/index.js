@@ -1,4 +1,5 @@
 const removeMd = require('remove-markdown')
+const path = require('path')
 
 module.exports = (themeConfig, ctx) => {
   themeConfig = Object.assign(themeConfig, {
@@ -18,7 +19,7 @@ module.exports = (themeConfig, ctx) => {
         path: '/blog/',
         // layout: 'IndexPost', defaults to `Layout.vue`
         itemLayout: 'Post',
-        itemPermalink: '/:year/:month/:day/:slug',
+        itemPermalink: '/blog/:year/:month/:day/:slug',
         pagination: {
           lengthPerPage: 5,
         },
@@ -102,13 +103,18 @@ module.exports = (themeConfig, ctx) => {
       if (!strippedContent) {
         return
       }
-      pageCtx.summary =
-        removeMd(
-          strippedContent
-            .trim()
-            .replace(/^#+\s+(.*)/, '')
-            .slice(0, themeConfig.summaryLength)
-        ) + ' ...'
+      pageCtx.summary = removeMd(
+        strippedContent
+          .trim()
+          .replace(/^#+\s+(.*)/, '')
+          .slice(0, themeConfig.summaryLength)
+      ) + ' ...'
+      const firstImageRegex = pageCtx._strippedContent.match(/(!?\[(.*?)\]\:?\(?)(.*?\.(jpe?g|gif|png|tiff))\)?/)
+      if (firstImageRegex) {
+        pageCtx.firstImage = firstImageRegex[3].trim()
+      } else {
+        pageCtx.firstImage = 'https://picsum.photos/seed/picsum/300'
+      }
     }
   }
 

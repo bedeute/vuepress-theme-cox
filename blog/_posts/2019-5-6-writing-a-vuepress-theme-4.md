@@ -5,10 +5,11 @@ tag:
   - blog
   - vuepress
 author: ULIVZ
-location: Shanghai  
+location: Shanghai
+thumbnail: https://intwohomes.co.uk/wp-content/uploads/2018/03/Desk-Setup-2018-Thumbnail.jpg
 ---
 
-# Writing a VuePress theme
+# Writing a VuePress theme edited
 
 To write a theme, create a `.vuepress/theme` directory in your docs root, and then create a `Layout.vue` file:
 
