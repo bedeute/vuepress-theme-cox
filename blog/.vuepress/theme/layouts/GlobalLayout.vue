@@ -42,10 +42,9 @@ export default {
 
 <style lang="stylus">
 .content-wrapper
-  padding 160px 15px 80px 15px
   min-height calc(100vh - 80px - 60px - 160px)
-  max-width 740px
   margin 0 auto
+  padding-top 5rem
 
 @media (max-width: $MQMobile)
   .content-wrapper

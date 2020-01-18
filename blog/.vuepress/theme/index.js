@@ -14,7 +14,7 @@ module.exports = (themeConfig, ctx) => {
   const defaultBlogPluginOptions = {
     directories: [
       {
-        id: 'post',
+        id: 'blog',
         dirname: '_posts',
         path: '/blog/',
         // layout: 'IndexPost', defaults to `Layout.vue`

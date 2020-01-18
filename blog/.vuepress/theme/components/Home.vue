@@ -159,12 +159,14 @@ export default {
 </script>
 
 <style lang="stylus">
+@require '../styles/wrapper.styl'
+  
 .home-hero
   background #ffffff
   background linear-gradient(rgba(230, 243, 255, 0) 0%, rgba(230, 243, 255, 1) 100%)
-  min-height 300px
-  padding-top 100px
-  padding-bottom 120px
+  min-height 30rem
+  padding-top 12rem
+  padding-bottom 10rem
 
 .profile
   display flex
@@ -172,29 +174,28 @@ export default {
   justify-content center
 
   &-ava
-    margin-left 20px
+    margin-left 2rem
     & > img
       border-radius 100%
-      width 120px
+      width 12rem
 
   &-content
     align-self center
-    padding-left 20px
-    padding-right 20px
-
+    padding-left 2rem
+    // padding-right 20px
+// 
     & > h1
-      font-size 1.8em
+      font-size 3.6rem
       margin 0
-      line-height 1
     
-    p
+    & > p
+      font-size 2rem
       margin 0
-      font-size .9em
 
     .social-link
       list-style none
       padding 0
-      margin 10px 0 0
+      margin 1rem 0 0
 
       & > li
         display inline-block
@@ -204,34 +205,30 @@ export default {
           display flex
           justify-content center
           align-items center
-          width 40px
-          height 40px
+          width 4rem
+          height 4rem
           border-radius 100%
-          background-color $grey20
+          background-color $grey10
 
 
 .short-bio-text
-  max-width 740px
-  margin 40px auto 0
+  max-width $contentWidth
+  margin 4rem auto 0
   text-align center
 
 .home-content
-  shadow()
-  border-radius 20px
-  margin-top -60px
-  background-color #fff
-  max-width $containerWidth + 100px
-
+  @extend $wrapper
+  margin-top -5rem
 
 // section divider style
 .section-divider
   text-transform uppercase
-  font-size .8rem
+  font-size 1.2rem
   font-weight 600
   color $grey40
   font-family $fontSansSerif
   position relative
-  margin 0 -50px 30px -50px
+  margin 0 -5rem 3rem -5rem
   // margin-left -50px
   // margin-right -50px
   // margin-bottom 30px
@@ -263,9 +260,9 @@ export default {
     z-index 2
     position relative
     display inline-block
-    margin-left 50px
-    margin-right 50px
-    padding 2px 16px
+    margin-left 5rem
+    margin-right 5rem
+    padding .2rem 1.6rem
     background-color white
     border-top-left-radius 20px
     border-top-right-radius 20px
