@@ -1,5 +1,8 @@
 <template>
-  <article class="post-list-item">
+  <article
+    class="post-list-item"
+    :class="{ 'its-featured' : isFeatured }"
+  >
     <aside class="post-list-item-cover">
       <NavLink
         :link="item.path"
@@ -8,7 +11,7 @@
     </aside>
     <div class="post-list-item-content">
       <header>
-        <span v-if="isFeatured">Featured</span>
+        <span v-if="isFeatured" class="its-featured-label">Featured</span>
         <div
           class="post-list-item-timestamp"
           v-if="item.frontmatter.date"
@@ -16,13 +19,13 @@
           <vp-icon name="calendar" class="its-icon" />
           <p class="its-date">{{ date }}</p>
         </div>
-        <h3>
+        <h3 class="post-list-item-title">
           <NavLink :link="item.path">{{ item.title }}</NavLink>
         </h3>
       </header>
-      <div class="post-list-item-body">
+      <p class="post-list-item-body">
         {{ item.frontmatter.summary || item.summary }}
-      </div>
+      </p>
       <div class="post-list-item-footer">
         <NavLink class="button" :link="item.path">Continue reading</NavLink>
       </div>
@@ -60,9 +63,10 @@ props: {
 
   &-cover
     flex none
-    width 10rem
-    height 11rem
+    width 14rem
+    height 15rem
     position relative 
+    margin-right 1.6rem
     
     >>> .nav-link
       position absolute
@@ -70,16 +74,48 @@ props: {
       height 100%
       background-size cover
       background-position center
+
+  
     
   &-content
     flex 1 1 auto
 
+    > header
+      > .its-featured
+        display inline-block
+        padding-right .6rem
+
+        &:after
+          content '|'
+          padding-left .8rem
+
   &-timestamp
+    line-height 1
+    display inline-block
+
+    > svg
+      font-size 1.6rem
 
     > .its-date
       display inline-block
       margin 0
+      font-size 1.6rem
 
+  &-title
+    margin 0
 
+    > a
+      font-weight 600
   
+  &-body
+    line-height 1.4
+    margin-top 1rem
+    font-size 1.6rem
+
+  &-footer
+    margin-top 1rem
+
+.its-featured
+  margin 1.4rem 0 0
+
 </style>

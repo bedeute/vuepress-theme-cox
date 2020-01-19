@@ -49,13 +49,8 @@
         class="cooookkk"
         
       >
-        <!-- <blog-list-item
-          v-for="(post, idx) in posts"
-          :item="post"
-          :index="idx"
-        /> -->
         <post-list />
-
+        <NavLink link="/blog/">View all blog</NavLink>
       </div>
 
       <!-- <BaseListLayout /> -->
@@ -212,23 +207,25 @@ export default {
 
 
 .short-bio-text
-  max-width $contentWidth
+  max-width 76rem
   margin 4rem auto 0
   text-align center
 
 .home-content
   @extend $wrapper
   margin-top -5rem
+  z-index 1
+  position relative
 
 // section divider style
 .section-divider
   text-transform uppercase
   font-size 1.2rem
   font-weight 600
-  color $grey40
+  color $grey30
   font-family $fontSansSerif
   position relative
-  margin 0 -5rem 3rem -5rem
+  margin 0 -4rem 3rem -4rem
   // margin-left -50px
   // margin-right -50px
   // margin-bottom 30px
@@ -239,13 +236,13 @@ export default {
     width 100%
     top 50%
     position absolute
-    background-color $grey20
+    background-color $grey10
 
   &-inner
     &:before
       content ''
       position absolute
-      height 15px
+      height 14px
       width 100%
       top 0
       left 0
@@ -255,7 +252,7 @@ export default {
       border-top-right-radius 20px
       border-width 1px
       border-style solid
-      border-color $grey20 $grey20 transparent $grey20
+      border-color $grey10 $grey10 transparent $grey10
 
     z-index 2
     position relative

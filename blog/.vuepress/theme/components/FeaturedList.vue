@@ -3,7 +3,8 @@
     <Carousel
       class="blog-list-inner"
       paginationActiveColor="#FFE854"
-      paginationColor="#C2CDD8"
+      paginationColor="#bad6e6"
+      paginationPadding="6"
       :navigationEnabled="true"
       :perPage="1"
     >
@@ -25,7 +26,7 @@
 <script>
 import PostListItem from "./PostListItem"
 import resolvePostDate from "../mixins/resolvePostDate"
-import { Carousel, Slide } from 'vue-carousel';
+import { Carousel, Slide } from 'vue-carousel'
 
 export default {
 
@@ -45,6 +46,17 @@ mixins: [resolvePostDate]
 }
 </script>
 
-<style>
+<style lang="stylus" scoped>
+>>> .VueCarousel-navigation
+  position absolute
+  right 0
+  top 2.4rem
 
+>>> .VueCarousel-pagination
+  position absolute
+  width auto
+  left auto
+  right 3rem
+  top 0
+  margin-top -1rem
 </style>

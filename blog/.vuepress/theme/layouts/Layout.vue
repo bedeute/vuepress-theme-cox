@@ -14,4 +14,4 @@ components: { Home }
 }
 </script>
 
-<style src="prismjs/themes/prism-okaidia.css"></style>
+<style src="prismjs/themes/prism-tomorrow.css"></style>
