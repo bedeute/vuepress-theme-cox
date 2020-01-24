@@ -10,15 +10,17 @@
       </div>
       <div class="mobile-menu-wrapper" :class="{ open: isOpen }">
         <hr class="menu-divider" />
-        <ul v-if="$themeConfig.nav" class="mobile-nav">
-          <li
-            v-for="item in $themeConfig.nav"
-            :key="item.text"
-            class="mobile-nav-item"
-          >
-            <NavLink :link="item.link">{{ item.text }}</NavLink>
-          </li>
-        </ul>
+        <nav class="mobile-nav">
+          <ul v-if="$themeConfig.nav">
+            <li
+              v-for="item in $themeConfig.nav"
+              :key="item.text"
+              class="mobile-nav-item"
+            >
+              <NavLink :link="item.link">{{ item.text }}</NavLink>
+            </li>
+          </ul>
+        </nav>
       </div>
     </div>
   </div>

@@ -3,7 +3,7 @@
     <Carousel
       class="blog-list-inner"
       paginationActiveColor="#FFE854"
-      paginationColor="#bad6e6"
+      paginationColor="##d6e4ec"
       paginationPadding="6"
       :navigationEnabled="true"
       :perPage="1"

@@ -9,7 +9,22 @@
         class="post-detail-cover-backdrop"
       />
       <div class="post-detail-cover-inner">
-        <p><vp-icon name="calendar" /> {{ resolvePostDate($page.frontmatter.date) }}</p>
+        <div class="post-detail-timestamp-wrapper">
+          <span v-if="$page.frontmatter.featured" class="its-featured-label">Featured</span>
+          <vp-icon name="calendar" />
+          <p>
+            {{ resolvePostDate($page.frontmatter.date) }}
+          </p>
+          <div class="post-list-item-tags" v-if="data.tag">
+            <NavLink
+              v-for="tagItem in data.tag"
+              :key="tagItem"
+              class="tags" :link="'/tag/' + tagItem"
+            >
+              #{{ tagItem }}
+            </NavLink>
+          </div>
+        </div>
         <h1 class="post-detail-title" v-if="$page.frontmatter.title">
           {{ $page.title || $title || 'Welcome to your VuePress site' }}
         </h1>
@@ -96,14 +111,14 @@ export default {
       width 100%
       height 100%
       background rgb(255,255,255)
-      background linear-gradient(0deg, rgba(255,255,255,1) 10%, rgba(255,255,255,0) 100%)
+      background linear-gradient(0deg, rgba(255,255,255,1) 6%, rgba(255,255,255,0) 40%)
 
     &:before
       content ''
       position absolute
       width 100%
       height 100%
-      background-image url(https://www.transparenttextures.com/patterns/bright-squares.png)
+      background-image url(https://www.transparenttextures.com/patterns/dark-denim-3.png)
 
   &.has-thumbnail
     height 40rem
@@ -114,6 +129,14 @@ export default {
   &.has-frontmatter-title.has-thumbnail
     height 60rem
 
+.post-detail-timestamp-wrapper
+  margin 0
+  color $grey10
+
+.post-detail-title
+  margin 1rem 0 0
+  color $grey10
+
 .post-detail-content
   @extend $wrapper
   position relative
@@ -121,6 +144,13 @@ export default {
 
 @media (min-width: $MQNarrow)
   box-shadow 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.07)
+
+.is-at-top
+
+  > .desktop-header
+
+    .home-link
+      color white
 </style>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>

@@ -46,11 +46,13 @@
       </div>
 
       <div
-        class="cooookkk"
+        class="home-post-list"
         
       >
         <post-list />
-        <NavLink link="/blog/">View all blog</NavLink>
+        <div class="home-post-list-footer">
+          <NavLink link="/blog/" class="button">View all blog</NavLink>
+        </div>
       </div>
 
       <!-- <BaseListLayout /> -->
@@ -207,8 +209,9 @@ export default {
 
 
 .short-bio-text
-  max-width 76rem
+  max-width 82rem
   margin 4rem auto 0
+  font-family $fontSerif
   text-align center
 
 .home-content
@@ -216,6 +219,9 @@ export default {
   margin-top -5rem
   z-index 1
   position relative
+
+  .featured-list
+    margin-bottom 4rem
 
 // section divider style
 .section-divider
@@ -264,6 +270,13 @@ export default {
     border-top-left-radius 20px
     border-top-right-radius 20px
 
+.home-post-list
 
+  &-footer
+    text-align center
+    padding 1rem 0 2rem
+
+    .nav-link
+      padding .8rem 4rem
 
 </style>

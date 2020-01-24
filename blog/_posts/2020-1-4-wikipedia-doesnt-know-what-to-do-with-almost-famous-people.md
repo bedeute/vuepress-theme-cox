@@ -1,8 +1,11 @@
 ---
-date: 2019-10-3
+date: 2020-1-4
 title: Wikipedia Doesn’t Know What to Do With Almost-Famous People
 subtitle: An arcane moderation process leaves public-ish individuals in a lurch when articles get too personal
 featured: true
+tag:
+  - vue
+  - shanghai
 ---
 
 ![Cover image](https://miro.medium.com/max/700/1*oWptRoXuCBWSxnRCz6NRCA.jpeg)

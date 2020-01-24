@@ -1,26 +1,28 @@
 <template>
   <footer class="footer">
-    <div class="footer-left-wrap">
-      <ul v-if="contact" class="contact">
-        <li
-          v-for="item in contact"
-          :key="item.iconComponent"
-          class="contact-item"
-        >
-          <NavLink :link="item.link">
-            <component :is="item.iconComponent"></component>
-            {{ item.text }}
-          </NavLink>
-        </li>
-      </ul>
-    </div>
+    <div class="footer-inner">
+      <div class="footer-left-wrap">
+        <ul v-if="contact" class="contact">
+          <li
+            v-for="item in contact"
+            :key="item.iconComponent"
+            class="contact-item"
+          >
+            <NavLink :link="item.link">
+              <component :is="item.iconComponent"></component>
+              {{ item.text }}
+            </NavLink>
+          </li>
+        </ul>
+      </div>
 
-    <div class="footer-right-wrap">
-      <ul v-if="copyright" class="copyright">
-        <li v-for="item in copyright" :key="item.text" class="copyright-item">
-          <NavLink :link="item.link">{{ item.text }}</NavLink>
-        </li>
-      </ul>
+      <div class="footer-right-wrap">
+        <ul v-if="copyright" class="copyright">
+          <li v-for="item in copyright" :key="item.text" class="copyright-item">
+            <NavLink :link="item.link">{{ item.text }}</NavLink>
+          </li>
+        </ul>
+      </div>
     </div>
   </footer>
 </template>
@@ -117,12 +119,11 @@ export default {
     padding 0
 
   .footer
-    height 80px
     box-sizing border-box
     color $grey80
-    display flex
-    padding 15px 32px
     position relative
+    padding-top 5rem
+    padding-bottom 2rem
 
     &:before
       content ''
@@ -131,14 +132,19 @@ export default {
       left 0
       right 0
       bottom 0
-      height 160%
+      height 175%
 
+    &-inner
+      width 'calc(%s + 14rem)' %$contentWidth
+      display flex
+      margin auto
 
     .footer-left-wrap
       line-height 30px
       flex 1
       display flex
       align-items center
+      position relative
 
       .contact
         display flex

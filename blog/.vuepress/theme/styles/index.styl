@@ -1,5 +1,7 @@
 @require './font.styl'
+@require './button.styl'
 @require './config.styl'
+@require './pagination.styl'
 @require './code.styl'
 @require './custom-blocks.styl'
 @require './arrow.styl'
@@ -7,9 +9,12 @@
 @require './toc.styl'
 @require './sw-popup.styl'
 
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,400i,600,600i&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Asap:400,400i,600,600i&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Serif:400,400i,600,600i&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Fira+Sans:400,400i,500,500i,600,600i,700,700i&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Asap:400,400i,600,600i&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Expletus+Sans&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Literata:400,400i,500,500i,600,600i,700,700i&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Gelasio:400,400i,500,500i,600,600i,700,700i&display=swap')
 
 html
   font-size 62.5%
@@ -69,7 +74,7 @@ body
     margin-top $navbarHeight
 
   a:hover
-    text-decoration underline
+    // text-decoration underline
 
   p.demo
     padding 1rem 1.5rem
@@ -90,8 +95,11 @@ a
   color $grey60
   text-decoration underline
   text-decoration-color $accentColor
+  transition all 0.22s
   &:hover
-    color darken($accentColor, 20%)
+    transition all 0.22s
+    text-decoration-color $grey70
+    color $grey70
 
 p a code
   font-weight 400
@@ -124,28 +132,34 @@ h1, h2, h3, h4, h5, h6
   font-weight 600
   line-height 1.25
   font-family $fontSerif
+  transition margin-left .12s ease-in-out
 
   {$contentClass}:not(.custom) > &
-    margin-top (0.5rem - $navbarHeight)
-    padding-top ($navbarHeight + 1rem)
+    // margin-top (0.5rem - $navbarHeight)
+    // padding-top ($navbarHeight + 1rem)
+    // margin-bottom 0
+    margin-top 5rem
     margin-bottom 0
 
     &:first-child
-      margin-top -4rem
+      margin-top 1rem
       margin-bottom 1rem
 
       + p, + pre, + .custom-block
         margin-top 2rem
 
-  &:hover .header-anchor
-    opacity: 1
+    &:hover
+      // transform translateX(.87rem)
+      margin-left 2rem
+      .header-anchor
+        opacity: 1
 
 h1
   font-size 3.8rem
 
 h2
   font-size 3rem
-  padding-bottom .3rem
+  // padding-bottom .3rem
 
 h3
   font-size 2.2rem
@@ -159,10 +173,12 @@ a.header-anchor
   margin-left -0.87em
   padding-right 0.23em
   margin-top 0.125em
+  text-decoration none
+  color $grey20
   opacity 0
 
   &:hover
-    text-decoration none
+    color $accentColor
 
 code, kbd, .line-number
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace

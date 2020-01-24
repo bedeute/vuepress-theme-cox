@@ -1,6 +1,11 @@
 <template>
-  <div id="vuepress-theme-blog__global-layout">
-    <Header />
+  <div 
+    id="vuepress-theme-blog__global-layout"
+    :class="{ 'is-at-top' : scrolled < 60 }"
+  >
+    <Header
+      :class="{ 'in-post-detail' : $page.frontmatter.layout == 'Post' }"
+    />
     <MobileHeader
       :is-open="isMobileHeaderOpen"
       @toggle-sidebar="isMobileHeaderOpen = !isMobileHeaderOpen"
@@ -29,25 +34,64 @@ export default {
   data() {
     return {
       isMobileHeaderOpen: false,
+      scrolled: null
     }
   },
-
+  methods: {
+    handleScroll () {
+      this.scrolled = window.scrollY
+    }
+  },
   mounted() {
     this.$router.afterEach(() => {
       this.isMobileHeaderOpen = false
     })
   },
+  created () {
+    window.addEventListener('scroll', this.handleScroll)
+  },
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll)
+  }
 }
 </script>
 
 <style lang="stylus">
 .content-wrapper
-  min-height calc(100vh - 80px - 60px - 160px)
+  min-height calc(100vh - 20.5rem)
   margin 0 auto
-  padding-top 5rem
 
 @media (max-width: $MQMobile)
   .content-wrapper
     padding 100px 15px 20px 15px
     min-height calc(100vh - 20px - 60px - 100px)
+
+.is-at-top
+
+  > #desktop-header
+    box-shadow none
+    background-color transparent
+    max-width 'calc(%s + 25rem)' %$contentWidth
+    padding-top 2rem
+
+    &.in-post-detail
+      padding-top 1rem
+
+    
+      .nav-link
+        color rgba(255, 255, 255, .76)
+
+        &.home-link
+          color white
+
+        &:after
+          bottom .4rem
+
+        &:hover
+          color white
+
+        &.router-link-active
+          color rgba(255,255,255, .9)
+
+
 </style>

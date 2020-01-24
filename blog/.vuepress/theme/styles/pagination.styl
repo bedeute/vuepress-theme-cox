@@ -1,0 +1,45 @@
+ul.pagination
+  
+  > li
+
+    > a,
+    > span
+      margin 0 1px
+      border-radius .4rem
+      background-color white
+      color $grey40
+      border 2px solid transparent
+      font-size 1.6rem
+
+      &:hover,
+      &:focus
+        background-color $grey10
+        border-color $grey20
+        color $grey
+    
+    &.active
+
+      > a,
+      > span
+        background-color $grey
+        border-color $grey
+        color $accentColor
+
+        &:hover,
+        &:focus
+          background-color $grey
+          color $accentColor
+          border-color $grey40
+          // background-color white
+          // color $grey40
+
+    &.disabled
+
+      > a,
+      > span,
+      > a:hover,
+      > span:hover,
+      > a:focus,
+      > span:focus
+        border-color transparent
+        color: $grey20
