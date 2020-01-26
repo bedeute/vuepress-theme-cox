@@ -93,5 +93,15 @@ export default {
         &.router-link-active
           color rgba(255,255,255, .9)
 
+      .search-box
+        input
+          background-color rgba(0,0,0, .2)
+          border-color rgba(255,255,255, .4)
+          border-width 1px
+          // transition all .s ease-in-out
+
+          &.focused
+            border-width 2px
+
 
 </style>

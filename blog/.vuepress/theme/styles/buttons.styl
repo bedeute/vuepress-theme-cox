@@ -1,0 +1,62 @@
+.button
+  border 2px solid $grey20
+  padding .4rem 1rem
+  border-radius .5rem
+  text-decoration none
+  // background-color lighten($grey, 70)
+  font-size 1.4rem
+  color $grey
+  position relative
+
+  &:before
+    content ''
+    position absolute
+    left 0
+    right 0
+    background-color $accentColorHover
+    bottom 0
+    height 0%
+    transition height .1s ease-in-out
+    border-radius 2px
+  
+
+  &:hover
+    // background-color $accentColorHover
+    border-color $accentColor
+    color $grey60
+    // background-color lighten($grey, 70)
+
+    &:before
+      height 100%
+      z-index -1
+
+.tag-link
+  font-size 1.6rem
+  color $grey30
+  padding 4px
+  text-decoration none
+  border-radius 14px
+  position relative
+  z-index 1
+
+  &:before
+    content ''
+    position absolute
+    left 0
+    right 0
+    background-color $accentColorHover
+    bottom 2px
+    height 0%
+    transition height .12s ease-in-out
+    border-radius 2px
+
+  &:hover
+    // background-color $grey10
+    // color darken($accentColor, 12)
+    // color $accentColor
+    color $grey
+
+    &:before
+      background-color $accentColorHover
+      height 80%
+      z-index -1

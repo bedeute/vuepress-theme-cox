@@ -107,15 +107,32 @@
         height 2.6rem
         font-size 1.4rem
         transition all .5s
-        border 1px solid $grey20
+        border 2px solid $grey20
+        padding 0 1.2rem 0 2.6rem
+        color $grey40
 
         &:hover
-          border 1px solid $accentColor
-          box-shadow 0 0 5px $accentColor
+          border-color $grey30
+          background-color lighten($grey, 72)
 
-        &:focused,
+        // &:focused,
         &.focused
-          width 20rem
+          background-color lighten($grey, 70)
+          width 12rem
+          border-color $grey30
+
+        @media (max-width: $MQNarrow)
+          padding-right .1rem
+          background-position-x .7rem
+          border-color transparent
+
+          &:hover
+            border-color $grey20
+            box-shadow none
+          
+          &.focused
+            border-color $grey20
+
 
       .suggestions
         border 1px solid $grey20

@@ -2,52 +2,41 @@
   <div id="post-detail">
     <div
       class="post-detail-cover"
-      :class="{ 'has-frontmatter-title' : $page.frontmatter.title, 'has-thumbnail' : $page.frontmatter.thumbnail }"
+      :class="{ 'has-frontmatter-title' : data.title, 'has-thumbnail' : data.thumbnail }"
     >
       <div
-        :style="{'background-image': `url(${ $page.frontmatter.thumbnail || $page.firstImage})`}"
+        :style="{'background-image': `url(${ data.thumbnail || $page.firstImage})`}"
         class="post-detail-cover-backdrop"
       />
       <div class="post-detail-cover-inner">
-        <div class="post-detail-timestamp-wrapper">
-          <span v-if="$page.frontmatter.featured" class="its-featured-label">Featured</span>
-          <vp-icon name="calendar" />
-          <p>
-            {{ resolvePostDate($page.frontmatter.date) }}
-          </p>
-          <div class="post-list-item-tags" v-if="data.tag">
-            <NavLink
-              v-for="tagItem in data.tag"
-              :key="tagItem"
-              class="tags" :link="'/tag/' + tagItem"
-            >
-              #{{ tagItem }}
-            </NavLink>
-          </div>
-        </div>
-        <h1 class="post-detail-title" v-if="$page.frontmatter.title">
-          {{ $page.title || $title || 'Welcome to your VuePress site' }}
-        </h1>
+        <template
+          v-if="data.title"
+        >
+          <Timestamp
+            :data="data"
+            :resolveDate="resolvePostDate(data.date)"
+          />
+          <h1 class="post-detail-title">
+            {{ $page.title || $title || 'Welcome to your VuePress site' }}
+          </h1>
+        </template>
       </div>
     </div>
-    <!-- <div class="post-detail-header" v-else>
-      <figure>
-        <img :src="$page.frontmatter.thumbnail || $page.firstImage" alt="Thumbnail image" >
-      </figure>
-      <div class="post-detail-header-inner">
-        <p><vp-icon name="calendar" /> {{ resolvePostDate($page.frontmatter.date) }}</p>
-      </div>
-    </div> -->
     <div class="post-detail-content">
       <div
         class="post-detail-subtitle"
         v-if="data.subtitle"
       >
         <p>
-          {{ data.subtitle }}
+          subtitle {{ data.subtitle }}
         </p>
         <hr>
       </div>
+      <Timestamp
+        v-if="!data.title"
+        :data="data"
+        :resolveDate="resolvePostDate(data.date)"
+      />
       <Content />
       <Newsletter v-if="$service.email.enabled" />
       <hr/>
@@ -61,11 +50,13 @@
 import Toc from '@theme/components/Toc.vue'
 import { Comment } from '@vuepress/plugin-blog/lib/client/components'
 import resolvePostDate from '../mixins/resolvePostDate'
+import PostDetailTimestamp from '../components/PostDetailTimestamp.vue'
 
 export default {
   components: {
     Toc,
     Comment,
+    Timestamp: PostDetailTimestamp,
     Newsletter: () => import('@theme/components/Newsletter.vue'),
   },
   computed: {
@@ -91,10 +82,10 @@ export default {
   position relative
 
   &-inner
-    width "calc(%s + 8rem)" % $contentWidth
+    width "calc(%s + 10rem)" % $contentWidth
     margin 0 auto
     position absolute
-    bottom 10rem
+    bottom 13rem
     left 0
     right 0
 
@@ -118,7 +109,7 @@ export default {
       position absolute
       width 100%
       height 100%
-      background-image url(https://www.transparenttextures.com/patterns/dark-denim-3.png)
+      background-image url(https://www.transparenttextures.com/patterns/darth-stripe.png)
 
   &.has-thumbnail
     height 40rem
@@ -129,18 +120,81 @@ export default {
   &.has-frontmatter-title.has-thumbnail
     height 60rem
 
+  .tag-link
+    color rgba(255,255,255, .9)
+
+    &:before
+      opacity .6
+
+    &:hover
+      color white
+
+
+.post-detail-subtitle
+  width "calc(%s + 8rem)" % $contentWidth
+  margin auto
+
+  + .post-detail-content
+    margin-top 2rem
+
 .post-detail-timestamp-wrapper
   margin 0
   color $grey10
+  text-shadow 0 1px 3px rgba(0,0,0, 0.9)
+  font-size 1.7rem
+
+  .vp-icon-calendar
+    width 1.4rem
+    -webkit-filter drop-shadow( 0 1px 2px rgba(0, 0, 0, 0.6))
+    filter drop-shadow( 0 1px 2px rgba(0, 0, 0, 0.6))
+    margin-right .4rem
+    vertical-align -2px
 
 .post-detail-title
-  margin 1rem 0 0
-  color $grey10
+  margin .4rem 0 0
+  color white
+  text-shadow 0 1px 3px rgba(0,0,0, 0.5)
+
+.post-detail-tags
+  display inline-block
+
+  &:before
+    content '|'
+    margin-right 2px
+
+    .tag-link
+
+      &:before
+        bottom 3px
+
+        &:hover
+          height 70%
+
+.post-detail-date
+  display inline-block
+  margin 0 10px 0 0
 
 .post-detail-content
   @extend $wrapper
   position relative
   margin-top -10rem
+
+  .post-detail-timestamp-wrapper
+    color $grey40
+    text-shadow none
+    margin-top 8px
+    margin-bottom -10px
+
+    .its-featured-label
+      background-color lighten($accentColor, 28)
+
+      &:after
+        border-color lighten($accentColor, 28) transparent transparent lighten($accentColor, 28)
+
+    > .vp-icon-calendar
+      -webkit-filter none
+      filter none
+
 
 @media (min-width: $MQNarrow)
   box-shadow 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.07)

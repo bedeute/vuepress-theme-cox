@@ -31,7 +31,7 @@
           <NavLink
             v-for="tagItem in item.frontmatter.tag"
             :key="tagItem"
-            class="tags" :link="'/tag/' + tagItem"
+            class="tag-link" :link="'/tag/' + tagItem"
           >
             #{{ tagItem }}
           </NavLink>
@@ -98,9 +98,21 @@ props: {
         padding-right .6rem
 
         &-label
+          border-left 2px solid $accentColor
+          padding 0 6px 0 10px
+          display inline-block
+          line-height 1.3
+          background-color lighten($accentColor, 28)
+          margin-right 16px
+          position relative
+
           &:after
-            content '|'
-            padding-left .8rem
+            content ''
+            position absolute
+            border-width 15px 8px 8px 4px
+            border-style solid
+            border-color lighten($accentColor, 28) transparent transparent lighten($accentColor, 28)
+            right -12px
 
   &-timestamp
     line-height 1
@@ -138,17 +150,6 @@ props: {
   &-tags
     flex 1 1 auto
     margin-left -4px
-
-    .nav-link
-      font-size 1.6rem
-      color $grey30
-      padding 4px
-      text-decoration none
-      border-radius 14px
-
-      &:hover
-        // background-color $grey10
-        color $grey60
 
     + .post-list-item-action
       flex none

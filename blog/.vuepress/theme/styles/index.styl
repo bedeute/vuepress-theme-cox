@@ -1,5 +1,5 @@
 @require './font.styl'
-@require './button.styl'
+@require './buttons.styl'
 @require './config.styl'
 @require './pagination.styl'
 @require './code.styl'
@@ -135,13 +135,14 @@ h1, h2, h3, h4, h5, h6
   transition margin-left .12s ease-in-out
 
   {$contentClass}:not(.custom) > &
-    // margin-top (0.5rem - $navbarHeight)
-    // padding-top ($navbarHeight + 1rem)
+    margin-top (0.5rem - $navbarHeight)
+    padding-top ($navbarHeight + 1rem)
     // margin-bottom 0
-    margin-top 5rem
+    // padding-top 5rem
     margin-bottom 0
 
     &:first-child
+      padding-top 0
       margin-top 1rem
       margin-bottom 1rem
 
