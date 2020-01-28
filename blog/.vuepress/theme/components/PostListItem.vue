@@ -82,6 +82,8 @@ props: {
     >>> .nav-link
       border-radius .4rem
       position absolute
+      background-clip unset
+      -webkit-background-clip unset
       width 100%
       height 100%
       background-size cover

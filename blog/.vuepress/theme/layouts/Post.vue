@@ -2,6 +2,7 @@
   <div id="post-detail">
     <div
       class="post-detail-cover"
+      ref="postDetailCover"
       :class="{ 'has-frontmatter-title' : data.title, 'has-thumbnail' : data.thumbnail }"
     >
       <div
@@ -28,7 +29,7 @@
         v-if="data.subtitle"
       >
         <p>
-          subtitle {{ data.subtitle }}
+          {{ data.subtitle }}
         </p>
         <hr>
       </div>
@@ -37,12 +38,21 @@
         :data="data"
         :resolveDate="resolvePostDate(data.date)"
       />
+      <p>
+        {{coverHeight}}
+      </p>
       <Content />
       <Newsletter v-if="$service.email.enabled" />
       <hr/>
       <Comment/>
     </div>
-    <Toc />
+    <div
+      class="toc-wrapper"
+      :style="{ top : coverHeight + 'px' }"
+    >
+      <Toc />
+    </div>
+
   </div>
 </template>
 
@@ -59,10 +69,20 @@ export default {
     Timestamp: PostDetailTimestamp,
     Newsletter: () => import('@theme/components/Newsletter.vue'),
   },
+  data: () => {
+    return {
+      coverHeight: 0
+    }
+  },
   computed: {
-  data () {
+    data () {
       return this.$page.frontmatter
     }
+  },
+  mounted () {
+    this.$nextTick( () => {
+      this.coverHeight = this.$refs.postDetailCover.clientHeight
+    })
   },
   mixins: [resolvePostDate]
 }
@@ -113,6 +133,9 @@ export default {
 
   &.has-thumbnail
     height 40rem
+
+    ~ .vuepress-toc
+      background red
   
   &.has-frontmatter-title
     height 40rem
@@ -122,6 +145,7 @@ export default {
 
   .tag-link
     color rgba(255,255,255, .9)
+    -webkit-text-fill-color inherit
 
     &:before
       opacity .6
@@ -133,9 +157,16 @@ export default {
 .post-detail-subtitle
   width "calc(%s + 8rem)" % $contentWidth
   margin auto
+  font-size 2.4rem
+  color $grey30
+  font-family "Arima Madurai", $fontSansSerif
 
-  + .post-detail-content
-    margin-top 2rem
+  > p
+    margin 1.4rem auto 2rem
+    line-height 1.6
+  
+  > hr
+    margin-bottom 3rem
 
 .post-detail-timestamp-wrapper
   margin 0
@@ -178,6 +209,7 @@ export default {
   @extend $wrapper
   position relative
   margin-top -10rem
+  z-index 1
 
   .post-detail-timestamp-wrapper
     color $grey40
@@ -195,6 +227,9 @@ export default {
       -webkit-filter none
       filter none
 
+.twitter-tweet
+  margin 3rem auto 4rem !important
+
 
 @media (min-width: $MQNarrow)
   box-shadow 0 10px 20px rgba(0, 0, 0, 0.05), 0 6px 6px rgba(0, 0, 0, 0.07)
@@ -205,6 +240,21 @@ export default {
 
     .home-link
       color white
+
+.toc-wrapper
+  margin-top -7rem
+  position absolute
+  right 10px
+  min-width 200px
+  max-width 220px
+  height calc(100% - 282px)
+
+  .vuepress-toc
+    position sticky
+    padding-top $navbarHeight + 1rem
+    top 0
+    bottom 200px
+
 </style>
 
 <style src="prismjs/themes/prism-tomorrow.css"></style>

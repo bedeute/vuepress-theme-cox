@@ -26,7 +26,7 @@ export default {
     font-weight: 300
     text-align left
     box-sizing border-box
-    transition: background-color .3s
+    // transition background-color .3s
     color $grey40
     border 2px solid $grey20
     text-decoration none
@@ -35,6 +35,10 @@ export default {
     background-color white
     padding-left .5rem
     transition all .12s ease-in-out
+    -webkit-text-fill-color inherit
+    background-image none
+    // background-clip unset
+    // background-clip unset
 
     &:before,
     &:after

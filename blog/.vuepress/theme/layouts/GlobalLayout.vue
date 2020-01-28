@@ -80,6 +80,7 @@ export default {
     
       .nav-link
         color rgba(255, 255, 255, .76)
+        -webkit-text-fill-color inherit
 
         &.home-link
           color white

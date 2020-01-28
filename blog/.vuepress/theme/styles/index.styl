@@ -15,6 +15,8 @@
 @import url('https://fonts.googleapis.com/css?family=Expletus+Sans&display=swap')
 @import url('https://fonts.googleapis.com/css?family=Literata:400,400i,500,500i,600,600i,700,700i&display=swap')
 @import url('https://fonts.googleapis.com/css?family=Gelasio:400,400i,500,500i,600,600i,700,700i&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Offside&display=swap')
+@import url('https://fonts.googleapis.com/css?family=Arima+Madurai&display=swap')
 
 html
   font-size 62.5%
@@ -83,6 +85,13 @@ body
 
   img
     max-width 100%
+    margin .8rem auto
+
+    + em
+      color $grey30
+      line-height 1.6
+      margin -1rem 1rem 0
+      display inline-block
 
 {$contentClass}.custom
   padding 0
@@ -96,9 +105,18 @@ a
   text-decoration underline
   text-decoration-color $accentColor
   transition all 0.22s
+  background-image linear-gradient( $grey70 55%, darken($accentColor, 16) 45%)
+  background-image -webkit-linear-gradient( $grey70 55%, darken($accentColor, 16) 45%)
+  -webkit-background-clip text
+  -webkit-text-fill-color transparent
+  background-position-y 0%
+  background-size 2px
+  background-size auto 175%
+
   &:hover
+    background-position-y 100%
     transition all 0.22s
-    text-decoration-color $grey70
+    text-decoration-color $grey
     color $grey70
 
 p a code
@@ -113,14 +131,18 @@ kbd
   padding 0 0.15em
 
 blockquote
-  font-size 2.2rem
-  color darken($accentColor, 50%)
-  border-left: 3px solid $accentColor;
-  margin 1rem 0.8rem
-  padding .8rem 2rem .8rem 2rem
+  font-size 2rem
+  font-family "IBM Plex Serif", $fontSerif
+  color desaturate(shade($accentColor, 24%), 36%)
+  border-left 3px solid $accentColor
+  border-top-left-radius 4px
+  border-bottom-left-radius 4px
+  margin 2.8rem 2rem
+  padding 1rem 1.8rem 1rem 1.8rem
 
   & > p
     margin 0
+    line-height 1.6
 
 ul, ol
   padding-left 1.2em
@@ -142,8 +164,10 @@ h1, h2, h3, h4, h5, h6
     margin-bottom 0
 
     &:first-child
-      padding-top 0
-      margin-top 1rem
+      margin-top (0.5rem - $navbarHeight)
+      padding-top ($navbarHeight + 1rem)
+      // padding-top 1rem
+      // margin-top -1rem
       margin-bottom 1rem
 
       + p, + pre, + .custom-block
@@ -170,6 +194,7 @@ h4
 
 a.header-anchor
   font-size 0.85em
+  display inline-block
   float left
   margin-left -0.87em
   padding-right 0.23em
@@ -185,11 +210,16 @@ code, kbd, .line-number
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 p, ul, ol
-  line-height 1.7
+  line-height 1.8
 
 hr
   border 0
-  border-top 1px solid $borderColor
+  background-color $grey10
+  height 3px
+  width 140px
+  border-radius 6px
+  margin-top 3rem
+  margin-bottom 2rem
 
 table
   border-collapse collapse

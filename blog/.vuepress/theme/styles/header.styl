@@ -65,8 +65,9 @@
             font-size 1.6rem
             // color lighten(#3eaf7c, 30%)
             text-decoration none
-            transition color .3s
+            // transition color .3s
             padding 1.4rem 0
+            -webkit-text-fill-color transparent
 
             &:after
               content ''
@@ -83,13 +84,19 @@
               transition background-color, bottom .12s ease-in-out
 
             &:hover
+              -webkit-text-fill-color transparent
+              color $accentColor
 
               &:after
                 background-color $grey10
 
 
             &.router-link-active
-              color $grey60
+              // color cyan
+              // background red
+              // -webkit-text-fill-color transparent
+              &:hover
+                background-position-y 0%
 
               &:after
                 background-color $accentColor

@@ -137,28 +137,33 @@ export default {
   display none !important
 
 .vuepress-toc
-  position fixed
   display none
   max-height 100vh
-  max-width 220px
   overflow-y auto
-  padding-top $navbarHeight
-  top 0
   right 10px
   box-sizing border-box
   /* background: #fff; */
   z-index 0
+  position sticky
+  padding-top $navbarHeight + 1rem
+  top 0
+
+  &:hover
+
+    .vuepress-toc-item
+      a
+        color $grey30
 
   .vuepress-toc-item
     position relative
-    padding 0.1rem 0.6rem 0.1rem 1.5rem
+    padding .4rem 1rem .4rem 1.4rem
     line-height 1.5rem
-    border-left 1px solid rgba(0, 0, 0, 0.08)
+    border-left 2px solid rgba(0, 0, 0, 0.08)
     overflow hidden
 
     a
       display block
-      color #2c3e50
+      color $grey
       width 100%
       box-sizing border-box
       font-size 12px
@@ -168,16 +173,27 @@ export default {
       overflow hidden
       text-overflow ellipsis
       white-space nowrap
+      -webkit-text-fill-color inherit
+      background-image none
 
     &.active
       border-left-color $accentColor
 
       a
-        color $accentColor
+        background-color darken(desaturate($accentColor, 10%), 20%)
+        -webkit-text-fill-color transparent
+        
+      &:hover
+        a
+          background-color darken(desaturate($accentColor, 10%), 30%)
+          -webkit-text-fill-color transparent
+
 
     &:hover
       a
-        color $accentColor
+        color $grey60
+        -webkit-text-fill-color transparent
+        background-color $grey60
 
   for i in range(3, 6)
     .vuepress-toc-h{i} a

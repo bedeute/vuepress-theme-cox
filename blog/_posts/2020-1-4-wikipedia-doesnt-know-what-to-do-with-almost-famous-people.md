@@ -12,7 +12,6 @@ tag:
 
 Wikipedia bills itself as the encyclopedia “anyone can edit.” It’s a phrase that gives the impression of an online Wild West, but layers of intricate systems and rules are in place to make sure everything stays on track.
 
-{{ $frontmatter.date }}
 
 ::: tip Title
 This is a tip
