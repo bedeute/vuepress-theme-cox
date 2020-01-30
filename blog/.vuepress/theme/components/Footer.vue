@@ -125,6 +125,9 @@ export default {
     padding-top 5rem
     padding-bottom 2rem
 
+    @media (max-width: $MQMobile)
+      padding-top 3rem
+
     &:before
       content ''
       background linear-gradient(rgba(230, 243, 255, 0) 0%, rgba(230, 243, 255, 1) 100%)
@@ -134,10 +137,24 @@ export default {
       bottom 0
       height 175%
 
+      @media (max-width: $MQMobile)
+        bottom -1rem
+
     &-inner
-      width 'calc(%s + 14rem)' %$contentWidth
+      max-width 'calc(%s + 14rem)' %$contentWidth
       display flex
       margin auto
+      padding-left 2rem
+      padding-right 2rem
+
+      @media (max-width: $MQMobile)
+        width 100%
+        flex-wrap wrap
+        padding 0 0 1rem
+
+        > *
+          flex auto !important
+          width 100%
 
     .footer-left-wrap
       line-height 30px
@@ -172,11 +189,16 @@ export default {
         display flex
         justify-content flex-end
 
+        @media(max-width: $MQMobile)
+          flex-wrap wrap
+          justify-content center
+        
+
         .copyright-item
           flex 0 0 auto
           padding 0 10px
           position relative
-          line-height 12px
+          line-height 1
           border-right 1px solid rgba(255, 255, 255, 0.6)
 
           &:last-child

@@ -12,6 +12,9 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
 
 // wide mobile
 @media (max-width: $MQMobile)
+  h1
+    font-size 3rem
+
   .sidebar
     top 0
     padding-top $navbarHeight
@@ -27,12 +30,12 @@ $mobileSidebarWidth = $sidebarWidth * 0.82
       .sidebar
         padding-top: 0
   {$contentClass}:not(.custom) > h1:first-child
-    padding-top 2rem
+    // padding-top 2rem
 
 // narrow mobile
 @media (max-width: $MQMobileNarrow)
   h1
-    font-size 1.9rem
+    font-size 2.6rem
   {$contentClass}
     div[class*="language-"]
       margin 0.85rem -1.5rem

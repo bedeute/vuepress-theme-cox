@@ -31,7 +31,7 @@
           <NavLink
             v-for="tagItem in item.frontmatter.tag"
             :key="tagItem"
-            class="tag-link" :link="'/tag/' + tagItem"
+            class="tag-link" :link="'/tag/' + tagItem + '/'"
           >
             #{{ tagItem }}
           </NavLink>

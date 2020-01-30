@@ -30,10 +30,18 @@ body
   font-family $fontSansSerif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  font-size 1.8rem
-  line-height 2
+  font-size 1.9rem
+  line-height 1.7
   color $textColor
   background-color #FFF
+
+  @media (max-width: $MQNarrow)
+    font-size 1.8rem
+    line-height 1.8
+
+  @media (max-width: $MQmobile)
+    font-size 1.6rem
+    line-height 1.6
 
 .page
   padding-left $sidebarWidth
@@ -73,7 +81,7 @@ body
 
 {$contentClass}:not(.custom)
   > *:first-child
-    margin-top $navbarHeight
+    // margin-top $navbarHeight
 
   a:hover
     // text-decoration underline
@@ -85,12 +93,12 @@ body
 
   img
     max-width 100%
-    margin .8rem auto
+    margin 2rem auto
 
     + em
       color $grey30
       line-height 1.6
-      margin -1rem 1rem 0
+      margin -1.4rem 1rem 1rem
       display inline-block
 
 {$contentClass}.custom
@@ -111,7 +119,7 @@ a
   -webkit-text-fill-color transparent
   background-position-y 0%
   background-size 2px
-  background-size auto 175%
+  background-size auto 200%
 
   &:hover
     background-position-y 100%
@@ -155,6 +163,9 @@ h1, h2, h3, h4, h5, h6
   line-height 1.25
   font-family $fontSerif
   transition margin-left .12s ease-in-out
+
+  + p, + ul, + ol
+    margin-top 1.6rem
 
   {$contentClass}:not(.custom) > &
     margin-top (0.5rem - $navbarHeight)
@@ -210,7 +221,11 @@ code, kbd, .line-number
   font-family source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace
 
 p, ul, ol
-  line-height 1.8
+  margin-top 2.4rem
+  margin-bottom 2.4rem
+
+  + h1, + h2, + h3, + h4, + h5, + h6
+    margin-top 2rem
 
 hr
   border 0

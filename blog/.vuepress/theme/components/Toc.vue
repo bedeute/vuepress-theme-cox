@@ -147,6 +147,7 @@ export default {
   position sticky
   padding-top $navbarHeight + 1rem
   top 0
+  font-family $fontSansSerif
 
   &:hover
 
@@ -156,7 +157,7 @@ export default {
 
   .vuepress-toc-item
     position relative
-    padding .4rem 1rem .4rem 1.4rem
+    padding .6rem 1rem .6rem 1.4rem
     line-height 1.5rem
     border-left 2px solid rgba(0, 0, 0, 0.08)
     overflow hidden
@@ -166,7 +167,7 @@ export default {
       color $grey
       width 100%
       box-sizing border-box
-      font-size 12px
+      font-size 1.4rem
       font-weight 400
       text-decoration none
       transition color 0.3s

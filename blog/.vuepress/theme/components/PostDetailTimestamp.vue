@@ -9,7 +9,7 @@
       <NavLink
         v-for="tagItem in data.tag"
         :key="tagItem"
-        class="tag-link" :link="'/tag/' + tagItem"
+        class="tag-link" :link="'/tag/' + tagItem + '/'"
       >
         #{{ tagItem }}
       </NavLink>
