@@ -101,57 +101,7 @@
               &:after
                 background-color $accentColor
 
-    >>> .search-box
-      flex none
-      margin-left 1rem
-      margin-right .8rem
-
-      input
-        background-position-y .6rem
-        background-position-x .8rem
-        background-size 1.4rem
-        border-radius 2rem
-        height 2.6rem
-        font-size 1.4rem
-        transition all .5s
-        border 2px solid $grey20
-        padding 0 1.2rem 0 2.6rem
-        color $grey40
-
-        &:hover
-          border-color $grey30
-          background-color lighten($grey, 72)
-
-        // &:focused,
-        &.focused
-          background-color lighten($grey, 70)
-          width 12rem
-          border-color $grey30
-
-        @media (max-width: $MQNarrow)
-          padding-right .1rem
-          background-position-x .7rem
-          border-color transparent
-
-          &:hover
-            border-color $grey20
-            box-shadow none
-          
-          &.focused
-            border-color $grey20
-
-
-      .suggestions
-        border 1px solid $grey20
-        top 40px
-        right 0
-
-        a
-          color $grey
-          text-decoration none
-
-          &.focused
-            color $accentColor
+    
 
 
 // mobile menu style
@@ -207,6 +157,62 @@
 .mobile-menu-wrapper.open
   max-height 450px
   transition 0.3s ease
+
+>>> .search-box
+  flex none
+  margin-left 1rem
+  margin-right .8rem
+
+  input
+    background-position-y .6rem
+    background-position-x .8rem
+    background-size 1.4rem
+    border-radius 2rem
+    height 2.6rem
+    font-size 1.4rem
+    transition all .5s
+    border 2px solid $grey20
+    padding 0 1.2rem 0 2.6rem
+    color $grey40
+
+    &:hover
+      border-color $grey30
+      background-color lighten($grey, 72)
+
+    // &:focused,
+    &.focused
+      background-color lighten($grey, 70)
+      width 12rem
+      border-color $grey30
+
+    @media (max-width: $MQNarrow)
+      padding-right .1rem
+      background-position-x .7rem
+      border-color transparent
+
+      &:hover
+        border-color $grey20
+        box-shadow none
+      
+      &.focused
+        border-color $grey20
+
+    @media screen and (max-width: $MQMobile)
+      &.focused
+        width calc(100vw - 11.8rem)
+
+
+  .suggestions
+    border 1px solid $grey20
+    top 40px
+    right 0
+
+    a
+      color $grey
+      text-decoration none
+
+      &.focused
+        color $accentColor
 
 
 @media (max-width: $MQMobile)

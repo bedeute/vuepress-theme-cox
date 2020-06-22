@@ -94,8 +94,11 @@ export default {
 #post-detail
   // @extend $wrapper
   position relative
-  margin 0 auto
+  margin -8rem auto 0
   font-family $fontSerif
+
+  @media (max-width: $MQMobile)
+    margin-top 1rem
 
 .post-detail-cover
   height 24rem
@@ -117,7 +120,7 @@ export default {
     @media (max-width: $MQMobile)
       padding-left 2rem
       padding-right 2rem
-      bottom 2rem
+      bottom 2.4rem
 
     // @media (max-width: $MQMobileNarrow)
     //   padding-left 2rem
@@ -129,6 +132,10 @@ export default {
     height 100%
     background-size cover
     background-position center
+
+    @media (max-width: $MQMobile)
+      border-top-left-radius 1rem
+      border-top-right-radius 1rem
 
     &:after
       content ''
@@ -150,11 +157,16 @@ export default {
       height 100%
       background-image url(https://www.transparenttextures.com/patterns/darth-stripe.png)
 
+      @media (max-width: $MQMobile)
+        border-top-left-radius 1rem
+        border-top-right-radius 1rem
+
   &.has-thumbnail
     height 40rem
 
     @media (max-width: $MQMobile)
       height 30rem
+      display none
   
   &.has-frontmatter-title
     height 40rem
@@ -167,6 +179,7 @@ export default {
 
     @media (max-width: $MQMobile)
       height 50rem
+      display block
 
   .tag-link
     color rgba(255,255,255, .9)
@@ -182,7 +195,7 @@ export default {
 .post-detail-subtitle
   max-width "calc(%s + 8rem)" % $contentWidth
   margin auto
-  font-size 2.4rem
+  font-size 2.2rem
   color $grey30
   font-family "Arima Madurai", $fontSansSerif
   z-index 2
@@ -195,7 +208,7 @@ export default {
     margin-bottom 3rem
 
 .post-detail-timestamp-wrapper
-  margin 0
+  margin .8rem 0
   color $grey10
   text-shadow 0 1px 3px rgba(0,0,0, 0.9)
   font-size 1.7rem
@@ -242,7 +255,7 @@ export default {
     padding 2rem 3rem
     
   @media (max-width: $MQMobile)
-    padding 1rem 2rem
+    padding 1rem .4rem
     margin-top 0
 
 

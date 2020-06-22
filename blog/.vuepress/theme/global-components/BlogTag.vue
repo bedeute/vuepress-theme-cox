@@ -85,12 +85,13 @@ export default {
 
       > span
         padding 0 .9rem
+        vertical-align middle
+
+        @media screen and (max-width: $MQNarrow)
+          vertical-align -5px
 
 
   @media screen and (max-width: 768px)
     .blog-tag
-      font-size 14px
-      padding 3px 10px
-      margin-right 10px
-      margin-bottom 10px
+      font-size 1.4rem
 </style>

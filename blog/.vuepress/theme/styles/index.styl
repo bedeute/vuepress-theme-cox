@@ -30,19 +30,14 @@ body
   font-family $fontSansSerif
   -webkit-font-smoothing antialiased
   -moz-osx-font-smoothing grayscale
-  font-size 1.9rem
+  font-size $baseFontSize
   line-height 1.7
   color $textColor
   background-color #FFF
 
-  @media (max-width: $MQNarrow)
-    font-size 1.8rem
-    line-height 1.8
-
-  @media (max-width: $MQmobile)
-    font-size 1.6rem
-    line-height 1.6
-
+  @media (max-width: $MQMobile)
+    font-size ($baseFontSize - 0.2)
+  
 .page
   padding-left $sidebarWidth
 
@@ -160,7 +155,7 @@ strong
 
 h1, h2, h3, h4, h5, h6
   font-weight 600
-  line-height 1.25
+  line-height 1.4
   font-family $fontSerif
   transition margin-left .12s ease-in-out
 
@@ -191,17 +186,24 @@ h1, h2, h3, h4, h5, h6
         opacity: 1
 
 h1
-  font-size 3.8rem
+  font-size 'calc(%s + 100%)' % $baseFontSize
+  line-height 1.3
 
 h2
-  font-size 3rem
-  // padding-bottom .3rem
+  font-size 'calc(%s + 75%)' % $baseFontSize
 
 h3
-  font-size 2.2rem
+  font-size 'calc(%s + 45%)' % $baseFontSize
 
 h4
-  font-size 1.9rem
+  font-size 'calc(%s + 25%)' % $baseFontSize
+
+h5
+  font-size 'calc(%s + 15%)' % $baseFontSize
+
+h6
+  font-size inherit
+  font-weight 600
 
 a.header-anchor
   font-size 0.85em

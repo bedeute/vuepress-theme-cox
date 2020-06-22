@@ -1,14 +1,13 @@
 ---
-date: 2020-1-4
-title: Wikipedia Doesn’t Know What to Do With Almost-Famous People
+date: 2020-5-13
+title: Blog With No Thumbnail Image
 subtitle: An arcane moderation process leaves public-ish individuals in a lurch when articles get too personal
 featured: true
 tag:
-  - vue
-  - shanghai
+  - blog
+  - without
+  - thumbnail
 ---
-
-![Cover image](https://miro.medium.com/max/700/1*oWptRoXuCBWSxnRCz6NRCA.jpeg)
 
 Wikipedia bills itself as the encyclopedia “anyone can edit.” It’s a phrase that gives the impression of an online Wild West, but layers of intricate systems and rules are in place to make sure everything stays on track.
 
@@ -29,8 +28,6 @@ This is a danger custom block
 
 Sometimes, though, things go wrong. Rules are bent or used to justify bad behavior. The Wikipedia platform is leveraged as a tool for abuse.
 
-!["dominating_sets_example2"](http://sparkandshine.net/wordpress/wp-content/uploads/2016/02/dominating_sets_example2.png)
-*Fig. 2: The minimum dominating set of a graph*
 
 Take the case of Jenny Nicholson. She makes videos for YouTube about [theme parks](https://www.youtube.com/watch?v=xrIxGWterYA), [bad books](https://www.youtube.com/watch?v=qMgMr0JcYJ4), and [porgs](https://www.youtube.com/watch?v=1yw6z9G7p1g) — the rotund, squawking bird creatures from Star Wars. She’s not an elected official, and she doesn’t run a Fortune 500 company. Yet, for a time, her Wikipedia page included deeply personal information, like names of old pets and when she got a certain job. It was stuff that went well beyond simple biography.
 

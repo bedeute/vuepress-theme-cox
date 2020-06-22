@@ -113,7 +113,7 @@ module.exports = (themeConfig, ctx) => {
       if (firstImageRegex) {
         pageCtx.firstImage = firstImageRegex[3].trim()
       } else {
-        pageCtx.firstImage = 'https://picsum.photos/seed/picsum/300'
+        pageCtx.firstImage = 'https://images.unsplash.com/photo-1557683316-973673baf926?ixlib=rb-1.2.1&w=1000&q=80'
       }
     }
   }

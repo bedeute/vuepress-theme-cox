@@ -58,14 +58,15 @@ export default {
 
 <style lang="stylus">
 .content-wrapper
-  min-height calc(100vh - 20.5rem)
+  min-height calc(100vh - 18.5rem)
   margin 0 auto
+  padding-top 8rem
 
 @media (max-width: $MQMobile)
   .content-wrapper
     // padding 100px 15px 20px 15px
     min-height calc(100vh - 20px - 60px - 100px)
-    padding-top 4.8rem
+    padding 4.8rem 2rem
 
 .is-at-top
 

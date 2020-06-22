@@ -47,16 +47,27 @@ mixins: [resolvePostDate]
 </script>
 
 <style lang="stylus" scoped>
->>> .VueCarousel-navigation
-  position absolute
-  right 0
-  top 2.4rem
+@media(max-width: $MQMobile)
+  .featured-list
+    width calc(100% - 6rem)
+    margin-left auto
+    margin-right auto
 
 >>> .VueCarousel-pagination
-  position absolute
-  width auto
-  left auto
-  right 3rem
-  top 0
   margin-top -1rem
+
+@media(min-width: $MQMobile)
+
+  >>> .VueCarousel-navigation
+    position absolute
+    right 0
+    top 2.4rem
+
+  >>> .VueCarousel-pagination
+    position absolute
+    width auto
+    left auto
+    right 3rem
+    top 0
+    
 </style>

@@ -3,12 +3,12 @@
     class="post-list-item"
     :class="{ 'its-featured' : isFeatured }"
   >
-    <aside class="post-list-item-cover">
+    <div class="post-list-item-cover">
       <NavLink
         :link="item.path"
         :style="{'background-image': `url(${ item.frontmatter.thumbnail || item.firstImage})`}"
       />
-    </aside>
+    </div>
     <div class="post-list-item-content">
       <header>
         <span v-if="isFeatured" class="its-featured-label">Featured</span>
@@ -19,9 +19,9 @@
           <vp-icon name="calendar" class="its-icon" />
           <p class="its-date">{{ date }}</p>
         </div>
-        <h3 class="post-list-item-title">
+        <h4 class="post-list-item-title">
           <NavLink :link="item.path">{{ item.title }}</NavLink>
-        </h3>
+        </h4>
       </header>
       <p class="post-list-item-body">
         {{ item.frontmatter.summary || item.summary }}
@@ -72,12 +72,28 @@ props: {
   display flex
   margin 4rem auto
 
+  @media (max-width: $MQMobile)
+    flex-wrap wrap
+
   &-cover
     flex none
     width 16rem
     height 19rem
     position relative 
     margin-right 1.6rem
+
+    @media (max-width: $MQMobile)
+      width 100%
+
+      &:after
+        content ''
+        position absolute
+        width 100%
+        background red
+        bottom 0
+        height 6rem
+        background rgb(0,0,0)
+        background linear-gradient(0deg, rgba(0,0,0,.6) 0%, rgba(0,0,0,0) 80%)
     
     >>> .nav-link
       border-radius .4rem
@@ -93,6 +109,10 @@ props: {
     
   &-content
     flex 1 1 auto
+
+    @media (max-width: $MQMobile)
+      margin-top -3.4rem
+      z-index 1
 
     > header
       .its-featured
@@ -121,6 +141,18 @@ props: {
     display inline-block
     color $grey40
 
+    @media (max-width: $MQMobile)
+      padding-left 1rem
+      color rgba(255,255,255,.8)
+      margin-bottom 2.6rem
+
+      > .its-date
+        text-shadow 0 1px 3px rgba(0,0,0, 0.5)
+
+      > svg
+        filter drop-shadow(0 1px 3px rgba(0,0,0, 0.5))
+
+
     > svg
       font-size 1.6rem
 
@@ -140,6 +172,9 @@ props: {
     line-height 1.4
     margin-top 1.4rem
     font-size 1.6rem
+
+    @media (max-width: $MQMobile)
+      margin-top 1rem
 
   &-footer
     margin-top 1rem

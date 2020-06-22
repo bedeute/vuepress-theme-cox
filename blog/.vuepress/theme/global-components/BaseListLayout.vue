@@ -77,7 +77,7 @@ export default {
 
 #base-list-layout
   max-width $contentWidth
-  margin 10rem auto 0
+  margin 0 auto
   position relative
   z-index 1
   

@@ -7,8 +7,12 @@
 
 <style lang="stylus" scoped>
   #vuepress-theme-blog__tags-layout
-    width 'calc(%s + 14rem)' %$contentWidth
-    margin 10rem auto 0
+    max-width 'calc(%s + 14rem)' %$contentWidth
+    margin 0 auto
+    padding 0 3.2rem
     position relative
     z-index 1
+
+    @media (max-width: $MQNarrow)
+      width auto
 </style>

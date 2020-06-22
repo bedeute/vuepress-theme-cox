@@ -11,10 +11,7 @@ export default {
 </script>
 
 <style lang="stylus">
-.blog-tags
-  width 66%
 
-@media screen and (max-width: 1000px)
-  .blog-tags
-    width 90%
+.blog-tags
+  padding-left .6rem
 </style>

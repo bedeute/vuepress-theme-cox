@@ -54,80 +54,6 @@
           <NavLink link="/blog/" class="button">View all blog</NavLink>
         </div>
       </div>
-
-      <!-- <BaseListLayout /> -->
-
-      <!-- <div class="blog-list is-latest">
-        <div class="blog-list-inner">
-          <div class="blog-list-item">
-            <div class="blog-list-item-cover">
-              <a
-                href=""
-                style="background-image: url('https://cdn-images-1.medium.com/fit/c/152/156/1*3wa7e-BlKgxRNI4gyh-Ncw.jpeg')"
-              />
-            </div>
-            <div class="blog-list-item-content">
-              <div class="blog-list-item-header">
-                <div class="blog-list-item-time">
-                  <vp-icon name="calendar" />
-                  June 02, 2019
-                </div>
-                <div class="blog-list-item-tags">
-                  <a href="#" class="tags">
-                    #design
-                  </a>
-                  <a href="#" class="tags">
-                    #tutorial
-                  </a>
-                </div>
-              </div>
-              <a href="#" class="blog-list-item-title">
-                <h4>Speed Up Development with Prototyping and Vue</h4>
-              </a>
-              <p class="blog-list-item-summary">
-                Have you ever worked on a project that got away from you? We can use Vue to build prototypes quickly, so you can get your ideas out there.
-              </p>
-              <div class="blog-list-item-footer">
-                <button class="btn">Read blog list</button>
-              </div>
-            </div>
-          </div>
-
-          <div class="blog-list-item">
-            <div class="blog-list-item-cover">
-              <a
-                href=""
-                style="background-image: url('https://cdn-images-1.medium.com/fit/c/152/156/1*3wa7e-BlKgxRNI4gyh-Ncw.jpeg')"
-              />
-            </div>
-            <div class="blog-list-item-content">
-              <div class="blog-list-item-header">
-                <div class="blog-list-item-time">
-                  <vp-icon name="calendar" />
-                  June 02, 2019
-                </div>
-                <div class="blog-list-item-tags">
-                  <a href="#" class="tags">
-                    #design
-                  </a>
-                  <a href="#" class="tags">
-                    #tutorial
-                  </a>
-                </div>
-              </div>
-              <a href="#" class="blog-list-item-title">
-                <h4>Speed Up Development with Prototyping and Vue</h4>
-              </a>
-              <p class="blog-list-item-summary">
-                Have you ever worked on a project that got away from you? We can use Vue to build prototypes quickly, so you can get your ideas out there.
-              </p>
-              <div class="blog-list-item-footer">
-                <button class="btn">Read blog list</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div> -->
     </div>
   </div>
   
@@ -165,34 +91,59 @@ export default {
   padding-top 12rem
   padding-bottom 10rem
 
+  @media(max-width: $MQNarrow)
+    background linear-gradient(rgba(230, 243, 255, 1) 0%, rgba(230, 243, 255, 0) 100%)
+    margin -8rem -2rem -6rem
+    padding-top 14rem
+    padding-left 2.4rem
+    padding-right 2.4rem
+
 .profile
   display flex
   flex-flow row nowrap
   justify-content center
 
+  @media(max-width: $MQMobile)
+    flex-wrap wrap
+
+    &-ava
+      width 100%
+      text-align center
+
   &-ava
-    margin-left 2rem
+    // margin-left 2rem
+
     & > img
       border-radius 100%
       width 12rem
+      height 12rem
+
+      @media (max-width: $MQMobile)
+        width 10rem
+        height 10rem
 
   &-content
     align-self center
     padding-left 2rem
-    // padding-right 20px
-// 
+
+    @media(max-width: $MQMobile)
+      padding-left 0
+      text-align center
+
     & > h1
-      font-size 3.6rem
       margin 0
     
-    & > p
+    & > .profession
       font-size 2rem
-      margin 0
+      margin .2rem 0 0
+
+      @media(max-width: $MQMobile)
+        font-size 1.8rem
 
     .social-link
       list-style none
       padding 0
-      margin 1rem 0 0
+      margin .4rem 0 0
 
       & > li
         display inline-block
@@ -213,6 +164,12 @@ export default {
   margin 4rem auto 0
   font-family $fontSerif
   text-align center
+  padding-left 4rem
+  padding-right 4rem
+
+  @media screen and (max-width: $MQMobile)
+    padding-left 1rem
+    padding-right 1rem
 
 .home-content
   @extend $wrapper
@@ -232,9 +189,13 @@ export default {
   font-family $fontSansSerif
   position relative
   margin 0 -4rem 3rem -4rem
-  // margin-left -50px
-  // margin-right -50px
-  // margin-bottom 30px
+
+  @media(max-width: $MQNarrow)
+    margin-left 0
+    margin-right 0
+
+    .section-divider-inner
+      margin-left 3rem
 
   &:before
     content ''

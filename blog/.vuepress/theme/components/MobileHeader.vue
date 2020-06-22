@@ -7,6 +7,9 @@
           :is="isOpen ? 'XIcon' : 'MenuIcon'"
           @click="$emit('toggle-sidebar')"
         />
+        <div class="mobile-search">
+          <SearchBox />
+        </div>
       </div>
       <div class="mobile-menu-wrapper" :class="{ open: isOpen }">
         <hr class="menu-divider" />
@@ -28,11 +31,13 @@
 
 <script>
 import { MenuIcon, XIcon } from 'vue-feather-icons'
+import SearchBox from '@SearchBox'
 
 export default {
   components: {
     MenuIcon,
     XIcon,
+    SearchBox
   },
   props: {
     isOpen: {
@@ -45,6 +50,9 @@ export default {
 <style lang="stylus" scoped  src="../styles/header.styl" />
 
 <style lang="stylus">
+
+.mobile-header-title
+  padding-right 3rem !important
 
 .mobile-nav-item
     list-style none
@@ -69,5 +77,12 @@ export default {
   @media (min-width: $MQMobile)
     #mobile-header
       display none
+
+.mobile-search
+  position absolute
+  right 3rem
+
+  .search-box
+    margin-left 0
 
 </style>
